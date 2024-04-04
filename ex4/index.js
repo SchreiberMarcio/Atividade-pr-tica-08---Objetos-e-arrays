@@ -31,26 +31,23 @@ function cadastrarPessoa() {
   let idade = parseInt(prompt("Digite a idade da pessoa:"));
   let estaTrabalhando = confirm("Esta pessoa está trabalhando?");
   let salario;
-
+  let pessoa = {
+    nome:nome,
+    idade:idade,
+    salario:salario,
+    trabalhando:estaTrabalhando
+  }
   if (estaTrabalhando) {
     let salarioStr = prompt("Digite o salário da pessoa:");
     salario = parseFloat(salarioStr);
     if (salario < 2500) {
-      pessoasEmpregadasMenor2500.push({
-        nome: nome,
-        idade: idade,
-        salario: salario,
-      });
+      pessoasEmpregadasMenor2500.push(pessoa);
     } else {
-      pessoasEmpregadasMaior2500.push({
-        nome: nome,
-        idade: idade,
-        salario: salario,
-      });
+      pessoasEmpregadasMaior2500.push(pessoa);
     }
   } else {
     salario = undefined;
-    pessoasDesempregadas.push({ nome: nome, idade: idade });
+    pessoasDesempregadas.push(pessoa);
   }
 }
 
